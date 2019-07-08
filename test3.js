@@ -5,9 +5,13 @@ const Immutable = require('immutable');
 // e.g. in the fromShape, we have cat and snake with 'long' == true
 // so in the toShape, we want long: [ 'cat', 'snake' ]
 const transform = (fromShape) => {
-  return fromShape;
-};
-
+  return fromShape.reduce((total, accumulator, index, list) => {
+    return accumulator.update(obj => {
+      return obj.set('cute', Immutable.List(['dog', 'cat']))
+    })
+  }, 0);
+  return fromShape
+}
 const fromShape = Immutable.fromJS({
   dog: {
     cute: true,

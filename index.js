@@ -9,8 +9,11 @@ const test5 = require('./test5.js');
 const runTest = (test, label) => {
   if(immutableEqual(test.transform(test.fromShape), test.toShape)){
     console.log(`${label}: SUCCESS!`);
+    // console.log(test.fromShape)
   } else {
     console.error(`${label}: Objects are not equal`);
+    // console.log(test.toShape)
+    // console.log(test.transform(test.fromShape))
   }
 }
 
